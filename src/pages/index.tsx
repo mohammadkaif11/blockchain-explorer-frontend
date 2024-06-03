@@ -81,27 +81,27 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  //Update transactions array
-  const updateTransaction = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:8000/api/transactions?page=${page}&filter=${filter}`
-      );
-      setTransactions(response.data);
-    } catch (error) {
-      console.error("Error fetching transactions:", error);
-    }
-  };
+  // //Update transactions array
+  // const updateTransaction = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       `http://localhost:8000/api/transactions?page=${page}&filter=${filter}`
+  //     );
+  //     setTransactions(response.data);
+  //   } catch (error) {
+  //     console.error("Error fetching transactions:", error);
+  //   }
+  // };
 
-  //Use Effect
-  useEffect(() => {
-    const intervalId = setInterval(async () => {
-      setPage(1); // Reset page to 1 before fetching
-      setFilter(""); // Reset filter to an empty string before fetching
-      await updateTransaction();
-    }, 30000); // Fetch new transactions every 30 seconds
-    return () => clearInterval(intervalId);
-  }, []);
+  // //Use Effect
+  // useEffect(() => {
+  //   const intervalId = setInterval(async () => {
+  //     setPage(1); // Reset page to 1 before fetching
+  //     setFilter(""); // Reset filter to an empty string before fetching
+  //     await updateTransaction();
+  //   }, 30000); // Fetch new transactions every 30 seconds
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
   return (
     <div className="py-1 bg-neutral-900">
