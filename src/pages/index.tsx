@@ -30,7 +30,7 @@ export default function Home() {
     const loadTransactions = async () => {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:8000/api/transactions?page=${page}&filter=${filter}`
+        `https://blockchain-explorer-backend-xyzv.onrender.com/api/transactions?page=${page}&filter=${filter}`
       );
       setTransactions((prev) => [...(prev || []), ...(response.data || [])]);
       setLoading(false);
